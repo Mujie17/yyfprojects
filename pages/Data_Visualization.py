@@ -23,7 +23,7 @@ if uploaded_file:
     def build1(df):
         x = df['薪资'].value_counts()[0:10].keys()
         y = df['薪资'].value_counts()[0:10].values
-        fig, ax = plt.subplots(figsize=(50, 30))
+        fig, ax = plt.subplots(figsize=(40, 20))
         ax.bar(x, y)
         plt.xlabel('salary range')
         plt.ylabel('occurrence number')
@@ -37,7 +37,7 @@ if uploaded_file:
     def sandian1(df):
         x = df['薪资'].value_counts()[0:10].keys()
         y = df['薪资'].value_counts()[0:10].values
-        fig, ax = plt.subplots(figsize=(50, 30))
+        fig, ax = plt.subplots(figsize=(40, 20))
         ax.scatter(x, y, color="red", label=u"salary range data", linewidth=2)
         plt.xlabel('salary range')
         plt.ylabel('occurrence number')
@@ -52,7 +52,7 @@ if uploaded_file:
     def zhexian1(df):
         x = df['薪资'].value_counts()[0:10].keys()
         y = df['薪资'].value_counts()[0:10].values
-        fig, ax = plt.subplots(figsize=(50, 30))
+        fig, ax = plt.subplots(figsize=(40, 20))
         ax.plot(x, y, marker='o', color='b', label="salary range data")
         plt.xlabel('salary range')
         plt.ylabel('occurrence number')
