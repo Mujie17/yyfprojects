@@ -2,9 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 
-# # 显示中文
-# plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
-# plt.rcParams['axes.unicode_minus'] = False
+# 显示中文
+plt.rcParams['font.sans-serif'] = ['DejaVu Sans']
+plt.rcParams['axes.unicode_minus'] = False
 
 @st.cache_data
 def load_data(path):
