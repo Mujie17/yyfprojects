@@ -2,6 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 
+# 显示中文
+    plt.rcParams['font.sans-serif'] = ['SimHei']
+    plt.rcParams['axes.unicode_minus'] = False
 
 @st.cache_data
 def load_data(path):
@@ -14,9 +17,7 @@ uploaded_file = st.file_uploader("Upload an article", type=("csv"))
 if uploaded_file:
     # 读取数据
     df = load_data(uploaded_file)
-    # 显示中文
-    plt.rcParams['font.sans-serif'] = ['SimHei']
-    plt.rcParams['axes.unicode_minus'] = False
+    
 
     #柱状图1
     def build1(df):
