@@ -21,8 +21,8 @@ if uploaded_file:
 
     #柱状图1
     def build1(df):
-        x = df['薪资'].value_counts()[0:10].keys()
-        y = df['薪资'].value_counts()[0:10].values
+        x = df['薪资'].value_counts()[0:5].keys()
+        y = df['薪资'].value_counts()[0:5].values
         fig, ax = plt.subplots()
         ax.bar(x, y)
         plt.xlabel('salary range')
@@ -35,8 +35,8 @@ if uploaded_file:
 
     # 散点图1
     def sandian1(df):
-        x = df['薪资'].value_counts()[0:10].keys()
-        y = df['薪资'].value_counts()[0:10].values
+        x = df['薪资'].value_counts()[0:5].keys()
+        y = df['薪资'].value_counts()[0:5].values
         fig, ax = plt.subplots()
         ax.scatter(x, y, color="red", label=u"salary range data", linewidth=2)
         plt.xlabel('salary range')
@@ -50,8 +50,8 @@ if uploaded_file:
 
     # 折线图1
     def zhexian1(df):
-        x = df['薪资'].value_counts()[0:10].keys()
-        y = df['薪资'].value_counts()[0:10].values
+        x = df['薪资'].value_counts()[0:5].keys()
+        y = df['薪资'].value_counts()[0:5].values
         fig, ax = plt.subplots()
         ax.plot(x, y, marker='o', color='b', label="salary range data")
         plt.xlabel('salary range')
