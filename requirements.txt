@@ -5,4 +5,4 @@ pydeck
 streamlit
 anthropic
 chromadb
-sqlite3=3.46.0
+sqlite3>3.35.0
