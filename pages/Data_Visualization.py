@@ -2,9 +2,9 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
 
-# 显示中文
-plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
-plt.rcParams['axes.unicode_minus'] = False
+# # 显示中文
+# plt.rcParams['font.sans-serif'] = ['Arial Unicode MS']
+# plt.rcParams['axes.unicode_minus'] = False
 
 @st.cache_data
 def load_data(path):
@@ -23,7 +23,7 @@ if uploaded_file:
     def build1(df):
         x = df['薪资'].value_counts()[0:10].keys()
         y = df['薪资'].value_counts()[0:10].values
-        fig, ax = plt.subplots(figsize=(100, 60))
+        fig, ax = plt.subplots(figsize=(50, 30))
         ax.bar(x, y)
         plt.xlabel('salary range')
         plt.ylabel('occurrence number')
@@ -37,7 +37,7 @@ if uploaded_file:
     def sandian1(df):
         x = df['薪资'].value_counts()[0:10].keys()
         y = df['薪资'].value_counts()[0:10].values
-        fig, ax = plt.subplots(figsize=(100, 60))
+        fig, ax = plt.subplots(figsize=(50, 30))
         ax.scatter(x, y, color="red", label=u"salary range data", linewidth=2)
         plt.xlabel('salary range')
         plt.ylabel('occurrence number')
@@ -52,7 +52,7 @@ if uploaded_file:
     def zhexian1(df):
         x = df['薪资'].value_counts()[0:10].keys()
         y = df['薪资'].value_counts()[0:10].values
-        fig, ax = plt.subplots(figsize=(100, 60))
+        fig, ax = plt.subplots(figsize=(50, 30))
         ax.plot(x, y, marker='o', color='b', label="salary range data")
         plt.xlabel('salary range')
         plt.ylabel('occurrence number')
