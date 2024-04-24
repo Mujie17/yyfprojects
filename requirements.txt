@@ -4,5 +4,3 @@ pandas
 pydeck
 streamlit
 anthropic
-chromadb
-sqlite3>3.35.0
