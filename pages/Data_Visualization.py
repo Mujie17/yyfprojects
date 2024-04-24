@@ -3,8 +3,8 @@ import matplotlib.pyplot as plt
 import streamlit as st
 
 # 显示中文
-    plt.rcParams['font.sans-serif'] = ['SimHei']
-    plt.rcParams['axes.unicode_minus'] = False
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
 
 @st.cache_data
 def load_data(path):
