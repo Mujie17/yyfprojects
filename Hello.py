@@ -2,7 +2,10 @@ import streamlit as st
 import anthropic
 import os
 import tiktoken
-
+from typing import List
+import numpy as np
+from tqdm import tqdm
+import json
 
 class BaseEmbeddings:
     """
@@ -36,7 +39,7 @@ class OpenAIEmbedding(BaseEmbeddings):
             from openai import OpenAI
             self.client = OpenAI()
             self.client.api_key = os.getenv("OPENAI_API_KEY")
-            self.client.base_url = os.getenv("OPENAI_BASE_URL")
+            # self.client.base_url = os.getenv("OPENAI_BASE_URL")
     
     def get_embedding(self, text: str, model: str = "text-embedding-3-large") -> List[float]:
         if self.is_api:
@@ -206,15 +209,14 @@ class BaseModel:
         pass
 
 class OpenAIChat(BaseModel):
-    def __init__(self, path: str = '', model: str = "gpt-3.5-turbo-1106", api_key) -> None:
+    def __init__(self, path: str = '', model: str = "gpt-3.5-turbo-1106") -> None:
         super().__init__(path)
         self.model = model
-        self.api_key = api_key
 
     def chat(self, prompt: str, history: List[dict], content: str) -> str:
         from openai import OpenAI
         client = OpenAI()
-        client.api_key = self.api_key 
+        client.api_key = os.getenv("API_KEY")
         # client.base_url = os.getenv("OPENAI_BASE_URL")
         history.append({'role': 'user', 'content': PROMPT_TEMPLATE['RAG_PROMPT_TEMPALTE'].format(question=prompt, context=content)})
         response = client.chat.completions.create(
@@ -230,7 +232,7 @@ with st.sidebar:
     anthropic_api_key = st.text_input("Anthropic API Key", key="file_qa_api_key", type="password")
     "[View the source code](https://github.com/streamlit/llm-examples/blob/main/pages/1_File_Q%26A.py)"
     "[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/streamlit/llm-examples?quickstart=1)"
-
+    os.environ['API_KEY'] = anthropic_api_key
 st.title("📝 File Q&A with Anthropic")
 uploaded_file = st.file_uploader("Upload an article", type=("txt", "md"))
 question = st.text_input(
