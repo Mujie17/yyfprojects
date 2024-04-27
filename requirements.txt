@@ -8,3 +8,6 @@ matplotlib
 os
 openai
 tiktoken
+tqdm
+json
+typing
