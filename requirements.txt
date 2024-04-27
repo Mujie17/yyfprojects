@@ -2,7 +2,7 @@ altair
 numpy
 pandas
 pydeck
-streamlit
+streamlit==0.55.2
 anthropic
 matplotlib
 os
