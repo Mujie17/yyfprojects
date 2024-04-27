@@ -5,3 +5,6 @@ pydeck
 streamlit
 anthropic
 matplotlib
+os
+openai
+tiktoken
